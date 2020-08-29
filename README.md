@@ -1,7 +1,6 @@
 # LetterOrder
 
-This was a personal coding challenge to produce a list of words where the letters were in alphabetical order
-abbey, glory, etc.
+This was a personal coding challenge to produce a list of words where the letters were in alphabetical order such as abbey, glory, etc.
 
 Thanks to [Nick](https://github.com/codejunkie83) and [Josh](https://github.com/OMGtechy) for their help with this one.
 
