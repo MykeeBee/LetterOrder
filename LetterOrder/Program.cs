@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace LetterOrder
@@ -8,17 +9,18 @@ namespace LetterOrder
     {
         static void Main()
         {
-            var file = File.ReadAllLines(@"C:\Users\Myke\source\repos\LetterOrder\words_alpha.txt");
-            var list = new List<string>(file);
+            var wordListFile = File.ReadAllLines(@"C:\Users\Myke\source\repos\LetterOrder\words_alpha.txt");
+            var currentWordList = new List<string>(wordListFile);
             
-            var wordList = new List<string>();
+            var newWordList = new List<string>();
             var addWord = false;
+            var minimumWordLength = 5;
 
-            foreach (var word in list)
+            foreach (var word in currentWordList.Where(word => word.Length >= minimumWordLength))
             {
                 for (var i = 0; i < word.Length - 1; i++)
                 {
-                    if (word[i] <= word[i + 1] && word.Length >= 5)
+                    if (word[i] <= word[i + 1])
                     {
                         addWord = true;
                     }
@@ -29,14 +31,14 @@ namespace LetterOrder
                         break;
                     }
                 }
-                
+
                 if (addWord)
                 {
-                    wordList.Add(word);
+                    newWordList.Add(word);
                 }
             }
 
-            foreach (var word in wordList)
+            foreach (var word in newWordList)
             {
                 Console.WriteLine(word + " - " + word.Length);
             }
